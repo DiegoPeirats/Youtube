@@ -1,0 +1,8 @@
+example\order\response\OrderDto.class
+example\order\request\OrderCreationRequest.class
+example\user\response\AddressDto.class
+example\order\ProductType.class
+example\user\response\UserDto$UserDtoBuilder.class
+example\user\response\AddressDto$AddressDtoBuilder.class
+example\user\response\UserDto.class
+example\user\request\AddressRequest.class

@@ -1,0 +1,9 @@
+package example.order;
+
+public class OrderDto {
+
+	public OrderDto() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.application.OrderServiceImpl;
 
-import example.order.request.OrderCreationRequest;
-import example.order.response.OrderDto;
 import lombok.RequiredArgsConstructor;
+import order.request.OrderCreationRequest;
+import order.response.OrderDto;
 
 @RestController
-@RequestMapping("/api/v1/orders")
+@RequestMapping("api/v1/orders")
 @RequiredArgsConstructor
 public class OrderController {
 	
@@ -28,9 +28,8 @@ public class OrderController {
 		return service.insert(request);
 	}
 	
-	@GetMapping("/getOrders/{id}")
-	public ResponseEntity<List<OrderDto>> getOrders(@PathVariable Long id){
-		return service.getOrdersByUser(id);
+	@GetMapping("/getByUser/{userId}")
+	public ResponseEntity<List<OrderDto>> getOrdersByUser(@PathVariable Long userId){
+		return service.getOrdersByUser(userId);
 	}
-
 }

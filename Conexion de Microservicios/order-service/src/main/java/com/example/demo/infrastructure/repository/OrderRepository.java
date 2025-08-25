@@ -6,10 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.domain.entity.Order;
 
-import example.order.response.OrderDto;
-
 public interface OrderRepository extends JpaRepository<Order, Long>{
-	
-	List<Order> findAllByUserId (Long userId);
 
+	List<Order> findAllByUserId (Long userId);
 }

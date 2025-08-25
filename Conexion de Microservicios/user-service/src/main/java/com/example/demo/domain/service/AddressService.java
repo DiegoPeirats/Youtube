@@ -1,0 +1,12 @@
+package com.example.demo.domain.service;
+
+import user.requests.AddressCreationRequest;
+import user.response.AddressDto;
+
+public interface AddressService {
+	
+	AddressDto insert(AddressCreationRequest request, Long userId);
+	
+	AddressDto getAddressByUserId(Long userId);
+
+}

@@ -1,0 +1,9 @@
+package com.example.demo.infrastructure.request;
+
+public class UserUpdateRequest {
+
+	public UserUpdateRequest() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

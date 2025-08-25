@@ -2,8 +2,8 @@ package com.example.demo.infrastructure.request;
 
 import java.time.LocalDate;
 
-import example.user.request.AddressRequest;
 import lombok.Getter;
+import user.requests.AddressCreationRequest;
 
 @Getter
 public class UserCreationRequest {
@@ -14,6 +14,6 @@ public class UserCreationRequest {
 	
 	private LocalDate birthday;
 	
-	private AddressRequest address;
+	private AddressCreationRequest address;
 
 }

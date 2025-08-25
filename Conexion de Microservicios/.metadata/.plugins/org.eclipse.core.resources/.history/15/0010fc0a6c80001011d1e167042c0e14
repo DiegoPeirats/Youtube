@@ -1,0 +1,5 @@
+package example.order.request;
+
+public class OrderCreationRequest {
+
+}

@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.application.response.UserDto;
+import com.example.demo.application.service.AddressServiceImpl;
 import com.example.demo.application.service.UserServiceImpl;
 import com.example.demo.infrastructure.request.UserCreationRequest;
 import com.example.demo.infrastructure.request.UserUpdateRequest;
 
-import example.user.response.AddressDto;
 import lombok.RequiredArgsConstructor;
+import user.requests.AddressCreationRequest;
+import user.response.AddressDto;
 
 @RestController
 @RequestMapping("/api/v1/users")
@@ -24,6 +26,8 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
 	
 	private final UserServiceImpl service;
+	
+	private final AddressServiceImpl addressService;
 	
 	@PostMapping("/insert")
 	public ResponseEntity<UserDto> insertUser(@RequestBody UserCreationRequest request){
@@ -46,8 +50,18 @@ public class UserController {
 	}
 	
 	@GetMapping("/getAddress/{userId}")
-	public AddressDto getAddress (@PathVariable Long userId){
-		return service.getAddressByUserId(userId);
+	public AddressDto getAddressByUserId (@PathVariable Long userId) {
+		return addressService.getAddressByUserId(userId);
+	}
+	
+	@PostMapping("/insertAddress")
+	public AddressDto insertAddress(@RequestBody AddressCreationRequest request){
+		return addressService.insert(request, null);
+	}
+	
+	@GetMapping ("/addressById/{id}")
+	public AddressDto getById (@PathVariable Long id) {
+		return addressService.getAddressById(id);
 	}
 
 }

@@ -1,0 +1,5 @@
+package example.user.request;
+
+public class AddressRequest {
+
+}

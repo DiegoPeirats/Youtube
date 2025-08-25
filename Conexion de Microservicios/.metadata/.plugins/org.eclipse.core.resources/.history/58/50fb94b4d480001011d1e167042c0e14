@@ -1,0 +1,13 @@
+package user.requests;
+
+public class AddressCreationRequest {
+	
+	private Long userId;
+	
+	private String cp;
+	
+	private String street;
+	
+	private String houseNumber;
+
+}

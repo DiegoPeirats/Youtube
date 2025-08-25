@@ -60,9 +60,9 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>youtube</groupId>
-			<artifactId>example</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+		  <groupId>com.exampleYoutube</groupId>
+		  <artifactId>base-domains</artifactId>
+		  <version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.modelmapper</groupId>

@@ -1,0 +1,5 @@
+package example.order.response;
+
+public class OrderDto {
+
+}

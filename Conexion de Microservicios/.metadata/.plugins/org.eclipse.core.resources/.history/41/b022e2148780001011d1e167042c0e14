@@ -1,0 +1,17 @@
+package example.order.request;
+
+import example.order.ProductType;
+import lombok.Getter;
+
+@Getter
+public class OrderCreationRequest {
+	
+	private Long userId;
+	
+	private ProductType productType;
+	
+	private Integer amount;
+	
+	private Double price;
+
+}

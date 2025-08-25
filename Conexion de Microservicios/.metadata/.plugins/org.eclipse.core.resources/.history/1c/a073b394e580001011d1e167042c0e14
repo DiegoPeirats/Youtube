@@ -1,0 +1,20 @@
+package order.request;
+
+import lombok.Getter;
+import order.ProductType;
+import user.requests.AddressCreationRequest;
+
+@Getter
+public class OrderCreationRequest {
+	
+	private Long userId;
+	
+	private Integer amount;
+	
+	private Double price;
+	
+	private ProductType product;
+	
+	private AddressCreationRequest address;
+
+}

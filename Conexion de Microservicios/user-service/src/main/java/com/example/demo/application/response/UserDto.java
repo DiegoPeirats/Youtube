@@ -2,12 +2,12 @@ package com.example.demo.application.response;
 
 import java.time.LocalDate;
 
-import example.user.response.AddressDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import user.response.AddressDto;
 
 @Getter
 @Setter

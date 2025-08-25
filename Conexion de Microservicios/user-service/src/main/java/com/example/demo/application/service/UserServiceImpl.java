@@ -7,16 +7,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.application.response.UserDto;
-import com.example.demo.domain.entity.Address;
 import com.example.demo.domain.entity.User;
 import com.example.demo.domain.service.UserService;
-import com.example.demo.infrastructure.repository.AddressRepository;
 import com.example.demo.infrastructure.repository.UserRepository;
 import com.example.demo.infrastructure.request.UserCreationRequest;
 import com.example.demo.infrastructure.request.UserUpdateRequest;
 
-import example.user.response.AddressDto;
 import lombok.RequiredArgsConstructor;
+import user.response.AddressDto;
 
 @Service
 @RequiredArgsConstructor
@@ -24,9 +22,9 @@ public class UserServiceImpl implements UserService{
 	
 	private final UserRepository repository;
 	
-	private final AddressRepository addressRepo;
-	
 	private final ModelMapper modelMapper;
+	
+	private final AddressServiceImpl addressService;
 	
 
 	@Override
@@ -41,15 +39,11 @@ public class UserServiceImpl implements UserService{
 			
 			repository.save(user);
 			
-			Address address = addressRepo.save(Address.builder()
-					.cp(request.getAddress().getCp())
-					.street(request.getAddress().getStreet())
-					.houseNumber(request.getAddress().getHouseNumber())
-					.userId(user.getId())
-					.build());
+			AddressDto address = addressService.insert(request.getAddress(), user.getId());
 			
 			UserDto userDto = modelMapper.map(user, UserDto.class);
-			userDto.setAddress(modelMapper.map(address, AddressDto.class));
+			
+			userDto.setAddress(address);
 			
 			return ResponseEntity.ok(userDto);
 		}catch(Exception e) {
@@ -97,13 +91,6 @@ public class UserServiceImpl implements UserService{
 		}
 		
 		return ResponseEntity.badRequest().build();
-	}
-
-
-	public AddressDto getAddressByUserId(Long userId) {
-	    return addressRepo.findByUserId(userId)
-	    		.map(address -> modelMapper.map(address, AddressDto.class))
-	    		.orElseThrow(() -> new IllegalArgumentException("El identificador no es válido: " + userId));
 	}
 
 }

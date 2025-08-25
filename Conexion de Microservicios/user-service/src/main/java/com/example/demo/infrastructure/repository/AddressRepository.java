@@ -1,15 +1,14 @@
 package com.example.demo.infrastructure.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.domain.entity.Address;
 
-import example.user.response.AddressDto;
-
-public interface AddressRepository extends JpaRepository<Address, Long> {
+public interface AddressRepository extends JpaRepository<Address, Long>{
 	
-	Optional<Address> findByUserId(Long userId);
+	List<Address> findByUserId(Long userId);
 
 }

@@ -1,0 +1,5 @@
+package example.user.response;
+
+public class UserDto {
+
+}

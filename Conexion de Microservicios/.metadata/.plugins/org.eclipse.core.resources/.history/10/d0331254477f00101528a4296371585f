@@ -1,0 +1,9 @@
+package com.example.demo.infrastructure.configuration;
+
+public class ModelMapperConfiguration {
+
+	public ModelMapperConfiguration() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

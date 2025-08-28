@@ -1,0 +1,5 @@
+order\response\OrderDto.class
+user\requests\AddressCreationRequest.class
+order\ProductType.class
+order\request\OrderCreationRequest.class
+user\response\AddressDto.class

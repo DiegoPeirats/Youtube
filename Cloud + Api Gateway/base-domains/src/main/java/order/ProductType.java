@@ -1,0 +1,16 @@
+package order;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
+public enum ProductType {
+	
+	WATER(1.50),
+	COCA_COLA(2.00),
+	NESTEA(2.10);
+	
+	private final Double price;
+
+}

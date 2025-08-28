@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: user-service   # nombre del microservicio para que Config Server lo identifique
+
+  cloud:
+    config:
+      uri: http://localhost:8888   # dirección de tu Config Server
+      profile: dev                 # usará user-service-dev.yml desde GitHub
+      label: main                  # rama del repo GitHub
+
+  consul:
+    host: localhost
+    port: 8500
+    discovery:
+      enabled: true
+      register: true
+      health-check-path: /actuator/health
+      health-check-interval: 10s
+
+server:
+  error:
+    include-message: always
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

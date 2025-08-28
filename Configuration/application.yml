@@ -1,6 +1,4 @@
 spring:
-  application:
-    name: user-service   # nombre del microservicio para que Config Server lo identifique
 
   cloud:
     config:

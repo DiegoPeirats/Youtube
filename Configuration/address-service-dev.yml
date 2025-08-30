@@ -13,4 +13,4 @@ spring:
         format_sql: true
 
 server:
-  port: 8081   # puedes poner el puerto que quieras para este micro
+  port: 8083   # puedes poner el puerto que quieras para este micro

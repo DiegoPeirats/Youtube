@@ -1,0 +1,21 @@
+# ---------- Runtime ----------
+FROM eclipse-temurin:17-jre
+# Crear usuario no root opcional
+RUN useradd -r -s /bin/false spring
+WORKDIR /app
+
+# Copiar el JAR compilado desde target
+COPY ./target/address-service-0.0.1-SNAPSHOT.jar app.jar
+
+# Exponer el puerto de la aplicación
+EXPOSE 8080
+
+# Healthcheck si usas actuator
+HEALTHCHECK --interval=30s --timeout=3s --retries=3 \
+  CMD wget -qO- http://localhost:8080/actuator/health || exit 1
+
+# Ejecutar como usuario no root
+USER spring
+
+# Ejecutar la aplicación
+ENTRYPOINT ["java", "-XX:MaxRAMPercentage=75", "-XX:+UseContainerSupport", "-jar", "app.jar"]

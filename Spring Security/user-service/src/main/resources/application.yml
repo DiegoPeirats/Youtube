@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: user-service
+  profiles:
+    active: dev
+  config:
+    import: "configserver:http://localhost:8888"
+
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        enabled: true
+        register: true
+        health-check-path: /actuator/health
+        health-check-interval: 10s
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+app:
+  jwt-secret: 5h8jRz9X+Z1lQXJcQWkF2sL5k9VvJd/8ZpSgN6o3w4U=
+  jwt-expiration: 86400000

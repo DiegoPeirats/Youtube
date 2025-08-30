@@ -1,0 +1,14 @@
+user\requests\LoginRequest.class
+user\response\LoginDto.class
+order\response\OrderDto.class
+user\response\UserDto$UserDtoBuilder.class
+user\requests\UserCreationRequest.class
+user\response\UserDto.class
+user\requests\UserUpdateRequest.class
+address\response\AddressDto.class
+order\request\OrderCreationRequest.class
+product\request\ProductCreationRequest.class
+product\request\ProductUpdateRequest.class
+product\response\ProductDto.class
+product\response\ProductDto$ProductDtoBuilder.class
+address\request\AddressCreationRequest.class

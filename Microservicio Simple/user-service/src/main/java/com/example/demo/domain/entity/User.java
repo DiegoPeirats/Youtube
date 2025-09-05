@@ -1,6 +1,5 @@
 package com.example.demo.domain.entity;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -18,11 +17,11 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name ="users")
-@Getter
-@Setter
+@Table(name="users")
 @AllArgsConstructor
 @NoArgsConstructor
+@Setter
+@Getter
 @Builder
 public class User {
 	
@@ -32,13 +31,14 @@ public class User {
 	
 	private String name;
 	
-	private String surname;
+	private String email;
 	
-	private LocalDate birthday;
+	private String password;
 	
 	@CreationTimestamp
 	private LocalDateTime createdAt;
 	
 	@UpdateTimestamp
 	private LocalDateTime updatedAt;
+
 }

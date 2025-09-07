@@ -1,4 +1,4 @@
-package com.example.demo.application;
+package com.example.demo.application.utils;
 
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
@@ -8,6 +8,7 @@ import org.mapstruct.factory.Mappers;
 
 import com.example.demo.application.response.UserDto;
 import com.example.demo.domain.entity.User;
+import com.example.demo.infrastructure.request.UserCreationRequest;
 import com.example.demo.infrastructure.request.UserUpdateRequest;
 
 @Mapper
@@ -19,5 +20,7 @@ public interface UserMapper {
 	
 	@BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 	void updateUserFromRequest(UserUpdateRequest request, @MappingTarget User user);
+	
+	User createUserFromRequest(UserCreationRequest request);
 
 }

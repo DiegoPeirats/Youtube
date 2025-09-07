@@ -10,16 +10,16 @@ public class UserCreationRequest {
 	
 	@NotBlank(message = "El nombre es obligatorio")
 	private String name;
-	
-	@NotBlank(message = "El email es obligatorio")
-	@Email(message = "El email no tiene un formato válido")
-	private String email;
-	
+
 	@NotBlank(message = "La contraseña es obligatoria")
-    @Pattern(
+	@Pattern(
             regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8}$",
             message = "La contraseña debe tener exactamente 8 caracteres, incluir al menos una letra y un número"
         )
 	private String password;
+
+	@NotBlank(message = "El email es obligatorio")
+	@Email(message = "El email no es válido")
+	private String email;
 
 }

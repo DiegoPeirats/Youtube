@@ -8,13 +8,14 @@ import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
 @Getter
+@Setter
 @Builder
 public class UserDto {
-	
+
 	private String name;
+
+	private String password;
 	
 	private String email;
-
 }

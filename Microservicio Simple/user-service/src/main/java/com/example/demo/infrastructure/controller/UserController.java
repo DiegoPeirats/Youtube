@@ -10,38 +10,36 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.application.UserServiceImpl;
 import com.example.demo.application.response.UserDto;
+import com.example.demo.application.service.UserService;
 import com.example.demo.infrastructure.request.UserCreationRequest;
 import com.example.demo.infrastructure.request.UserUpdateRequest;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
 public class UserController {
 	
-	private final UserServiceImpl service;
+	private final UserService service;
 	
-	@PostMapping("/insert")
-	public ResponseEntity<UserDto> insert(@Valid @RequestBody UserCreationRequest request){
-		return ResponseEntity.status(HttpStatus.CREATED).body(service.insert(request));
+	@PostMapping("/create")
+	public ResponseEntity<UserDto> create(@RequestBody UserCreationRequest request){
+		return ResponseEntity.status(HttpStatus.CREATED).body(service.create(request));
 	}
 	
-	@PutMapping("/update")
-	public ResponseEntity<UserDto> update(@RequestBody UserUpdateRequest request){
-		return ResponseEntity.status(HttpStatus.OK).body(service.update(request));
-	}
+	@PutMapping("/update/{id}")
+	public ResponseEntity<UserDto> update(@RequestBody UserUpdateRequest request, @PathVariable Long id){
+		return ResponseEntity.status(HttpStatus.OK).body(service.update(request, id));
+	}	
 	
 	@GetMapping("/getUser/{id}")
 	public ResponseEntity<UserDto> getUser(@PathVariable Long id){
-		return ResponseEntity.status(HttpStatus.OK).body(service.getById(id));
-	}
+		return ResponseEntity.status(HttpStatus.FOUND).body(service.getUser(id));
+	}	
 	
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> delete(@PathVariable Long id){
 		return ResponseEntity.status(HttpStatus.OK).body(service.delete(id));
 	}
-
 }

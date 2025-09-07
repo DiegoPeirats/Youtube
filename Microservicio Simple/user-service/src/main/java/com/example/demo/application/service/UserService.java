@@ -1,5 +1,4 @@
-package com.example.demo.domain.service;
-
+package com.example.demo.application.service;
 
 import com.example.demo.application.response.UserDto;
 import com.example.demo.infrastructure.request.UserCreationRequest;
@@ -7,12 +6,13 @@ import com.example.demo.infrastructure.request.UserUpdateRequest;
 
 public interface UserService {
 	
-	UserDto insert(UserCreationRequest request);
+	UserDto create(UserCreationRequest request);
+
+	UserDto update(UserUpdateRequest request, Long id);
 	
-	UserDto update(UserUpdateRequest request);
+	UserDto getUser(Long id);
 	
-	UserDto getById(Long id);
+	String delete(Long id);
 	
-	String delete (Long id);
 
 }
